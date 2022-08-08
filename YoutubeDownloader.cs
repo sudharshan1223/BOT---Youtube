@@ -20,7 +20,8 @@ namespace Youtube
                 var video = youTube.GetVideo("https://youtu.be/" + link); // gets a Video object with info about the video
                 var videoInfos = youTube.GetAllVideosAsync("https://youtu.be/" + link).GetAwaiter().GetResult();
                 var maxResolution = videoInfos.First(i => i.Resolution == videoInfos.Max(j => j.Resolution));
-                File.WriteAllBytes(@"C:\Users\iw561f\Desktop\output\" + video.FullName, maxResolution.GetBytes());
+                await Task.Run(() => File.WriteAllBytes(@"C:\Users\iw561f\Desktop\output\" + count, maxResolution.GetBytes()));
+                count++;
             }
         }
     }
