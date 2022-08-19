@@ -52,13 +52,7 @@ namespace Youtube
                 }
             }
             Console.WriteLine(String.Format("Videos:\n{0}\n", string.Join("\n", videos)));
-            //await Task.Run(() =>
-            //{ new 
-            YoutubeDownloader a = new YoutubeDownloader();
-            a.download(Links);
-        //}
-
-            //);
+                    new YoutubeDownloader().download(Links);
         }
     }
 }
